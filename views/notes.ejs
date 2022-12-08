@@ -1,0 +1,10 @@
+<% for(let x=0;x<=data.length-1; x++){ %>
+    <div class='note' note_id="<%= x %>" id="note_element">
+        <div class='note_title'><%= data[x].note_title %></div>
+        <div class="note_content"><%= data[x].note_content %></div>
+        <form action="/delete" onsubmit="deleteNote(this)" method="post">
+            <input hidden  value="<%= x %>" name="note_id" />
+            <button class='delete-note-btn' id="<%= x %>">Delete</button>
+        </form> 
+    </div>
+<% } %>
