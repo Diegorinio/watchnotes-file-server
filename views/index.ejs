@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style/style.css"/>
 </head>
 <body>
-    <form id="note-form" method="post" action="/addtodb">
+    <form id="note-form" onsubmit="return deleteNote()" method="post" action="/addtodb">
         <label>Subject: </label><input id="note_subject" type="text" name="subject"/>
         <label>Creator: </label><input type="text" name="creator"/>
     </br>

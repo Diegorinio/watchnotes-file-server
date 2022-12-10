@@ -2,7 +2,7 @@
     <div class='note' note_id="<%= x %>" id="note_element">
         <div class='note_title'><%= data[x].note_title %></div>
         <div class="note_content"><%= data[x].note_content %></div>
-        <form action="/delete" onsubmit="deleteNote(this)" method="post">
+        <form action="/delete" onsubmit="return deleteNote()" method="post">
             <input hidden  value="<%= x %>" name="note_id" />
             <button class='delete-note-btn' id="<%= x %>">Delete</button>
         </form> 
