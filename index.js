@@ -28,17 +28,15 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/addtodb', (req, res)=>{
-    let note_title = req.body.note_title;
+    let _note_title = req.body.note_title;
     let _note_content = req.body.note_content;
-    let _creator = req.body.creator;
     let _subject = req.body.subject;
     let tojson = {subject:_subject,
-    note_title:note_title,note_content:_note_content,creator:_creator}
+    note_title:_note_title,note_content:_note_content}
     console.log(tojson);
     fs.readFile(db, 'utf-8',(err, data)=>{
         let datajson = JSON.parse(data);
         datajson.notes.push(tojson);
-        console.log(datajson.notes);
          fs.writeFile(db, JSON.stringify(datajson), 'utf-8', (err,res)=>{
             if(err){res(err)}
          });
@@ -46,12 +44,12 @@ app.post('/addtodb', (req, res)=>{
     res.redirect('/');
 })
 
-app.get('/note', (req, res)=>{
+app.get('/notes', (req, res)=>{
     fs.readFile(db,'utf-8',(err, data)=>{
         if(err){res.send(err)}
         let data_parse = JSON.parse(data);
         let respond = JSON.stringify(data_parse).replace(/\\/g, "");
-        res.send(respond)
+        res.json(data_parse)
     })
 })
 
