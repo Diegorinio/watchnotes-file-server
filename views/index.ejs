@@ -8,28 +8,18 @@
     <link rel="stylesheet" type="text/css" href="style/style.css"/>
 </head>
 <body>
-    <form id="note-form" onsubmit="return deleteNote()" method="post" action="/addtodb">
+    <form id="note-form" onsubmit="return isFormCompleted()" method="post" action="/addtodb">
         <label>Subject: </label><input id="note_subject" type="text" name="subject"/>
     </br>
-        <label>Note name: </label><input class="note_name" type="text" name="note_title"/>
+        <label>Note name: </label><input id="note_title" type="text" name="note_title"/>
     </br>
-        <label>Note content </label><textarea class="note_content" name="note_content" rows="4" cols="50">0</textarea>
+        <label>Note content </label><textarea id="note_content" name="note_content" rows="4" cols="50">0</textarea>
     </br>
-    <!-- <label>Note color</label>
-    <select class="note_color" name="note_color">
-        <!-- <option value="red">Red</option>
-        <option value="pink">Pink</option>
-        <option value="blue">Blue</option> -->
-        <!-- <option value="#FF1744">Red</option>
-        <option value="#D500F9">Pink</option>
-        <option value="#64B5F6">Blue</option>
-    </select> -->
 </br>
         <button type="submit" name="submit">Dodaj</button>
     </form>
     </br>
     <%- include('./notes'); %>
-
     <script src="js/main.js"></script>
 </body>
 </html>
