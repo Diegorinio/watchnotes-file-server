@@ -13,10 +13,14 @@
     </br>
         <label>Note name: </label><input id="note_title" type="text" name="note_title"/>
     </br>
-        <label>Note content </label><textarea id="note_content" name="note_content" rows="4" cols="50">0</textarea>
+        <label>Note content </label><textarea id="note_content" name="note_content" rows="4" cols="50"></textarea>
     </br>
+    <div class="input_values">
+        <lable>Characters:</lable>
+        <span class="input_value_characters">0</span>
+    </div>
 </br>
-        <button type="submit" name="submit">Dodaj</button>
+        <button type="submit" name="submit">ADD</button>
     </form>
     </br>
     <%- include('./notes'); %>

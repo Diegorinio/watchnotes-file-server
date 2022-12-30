@@ -48,9 +48,7 @@ app.get('/notes', (req, res)=>{
     fs.readFile(db,'utf-8',(err, data)=>{
         if(err){res.send(err)}
         let data_parse = JSON.parse(data);
-        let respond = JSON.stringify(data_parse).replace(/\\/g, "");
-        // res.json(data_parse)
-        res.send(respond);
+        res.json(data_parse);
     })
 })
 

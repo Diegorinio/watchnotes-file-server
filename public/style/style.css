@@ -1,6 +1,7 @@
 html{
     background-color: rgb(37, 36, 36);
 }
+
 input[type="text"], textarea{
     background-color: rgb(66, 66, 66);
     color:white;
@@ -11,6 +12,7 @@ input[type="text"], textarea{
 #note-form{
     color: white;
 }
+
 .note_content-display{
     font-size: medium;
     display: none;
@@ -19,6 +21,7 @@ input[type="text"], textarea{
     color:white;
     overflow-y: scroll;
 }
+
 .note_title{
     position: relative;
     background-color: rgb(129, 129, 129);
@@ -33,9 +36,11 @@ input[type="text"], textarea{
     color:white;
     font-weight: bold;
 }
+
 .note_title:hover{
     background-color: rgb(167, 167, 167);
 }
+
 .delete-note-btn{
     position: relative;
     background-color: aqua;
@@ -47,6 +52,7 @@ input[type="text"], textarea{
     margin-bottom: 5px;
     font-weight: bold;
 }
+
 .delete-note-btn:hover{
     background-color: rgb(58, 209, 209);
 }
