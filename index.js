@@ -6,6 +6,16 @@ const app = express();
 const router = express.Router();
 const port = 8080;
 const db = "database.json";
+const localtunnel = require('localtunnel');
+
+(async ()=>{
+    const tunnel = await localtunnel({port: 8080, subdomain: 'watchnotes'});
+    tunnel.url;
+    console.log(`Site open at ${tunnel.url}`);
+    tunnel.on('closer', ()=>{
+        console.log('tunnel closed');
+    })
+})();
 
 let host = process.argv.slice(2);
 if(host.length<=0){
@@ -22,17 +32,16 @@ app.get('/', (req, res)=>{
     fs.readFile(db,'utf-8',(err, data)=>{
         if(err){res.send(err)}
         let data_parse = JSON.parse(data);
-        let respond = JSON.stringify(data_parse).replace(/\\/g, "");
         res.render('index', {data: data_parse.notes});
     })
 })
 
 app.post('/addtodb', (req, res)=>{
-    let _note_title = req.body.note_title;
+    let _note_title = req.body.note_title.replace(/\s/g, '');
     let _note_content = req.body.note_content;
     let _subject = req.body.subject;
     let tojson = {subject:_subject,
-    note_title:_note_title,note_content:_note_content}
+    note_title:_note_title,note_content:_note_content};
     console.log(tojson);
     fs.readFile(db, 'utf-8',(err, data)=>{
         let datajson = JSON.parse(data);

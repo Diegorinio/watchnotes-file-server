@@ -31,9 +31,8 @@ deleteNote = (title)=>{
 }
 
 ShowNote =(event)=>{
-    const template="note_content-";
-    console.log(event.target.getAttribute('id'));
-    note = document.querySelector(`#${template}${event.target.getAttribute('id')}`)
+    const template="-content";
+    note = document.querySelector(`#'${event.target.getAttribute('id')}'-content`)
     console.log(note.style.display);
     if(note.style.display!="block"){
         note.style.display = "block";
