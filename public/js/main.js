@@ -31,8 +31,11 @@ deleteNote = (title)=>{
 }
 
 ShowNote =(event)=>{
-    const template="-content";
-    note = document.querySelector(`#'${event.target.getAttribute('id')}'-content`)
+    const template="content";
+    const id = event.target.getAttribute('id');
+    console.log(id);
+    note = document.getElementById(`${id}-${template}`);
+    // note = document.querySelector(`#'${event.target.getAttribute('id')}'-content`)
     console.log(note.style.display);
     if(note.style.display!="block"){
         note.style.display = "block";
@@ -40,4 +43,10 @@ ShowNote =(event)=>{
         note.style.display = "none";
     }
     
+}
+
+addCharacterToInput=(e)=>{
+    console.log(e.target.getAttribute("value"));
+    const char = e.target.getAttribute("value");
+    document.querySelector("#note_content").value+=char;
 }

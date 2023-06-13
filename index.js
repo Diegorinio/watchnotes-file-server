@@ -7,16 +7,16 @@ const router = express.Router();
 const port = 8080;
 const db = "database.json";
 const localtunnel = require('localtunnel');
-
-(async ()=>{
-    const tunnel = await localtunnel({port: 8080, subdomain: 'watchnotes'});
-    tunnel.url;
-    console.log(`Site open at ${tunnel.url}`);
-    tunnel.on('closer', ()=>{
-        console.log('tunnel closed');
-    })
-})();
-
+//
+//(async ()=>{
+//    const tunnel = await localtunnel({port: 8080, subdomain: 'watchnotes'});
+//    tunnel.url;
+//    console.log(`Site open at ${tunnel.url}`);
+//    tunnel.on('closer', ()=>{
+//        console.log('tunnel closed');
+//    })
+//})();
+//
 let host = process.argv.slice(2);
 if(host.length<=0){
     host = "localhost";
@@ -74,7 +74,6 @@ app.post('/delete', (req,res)=>{
          res.redirect('/');
     });
 })
-
 app.listen(port, ()=>{
     console.log(`Server is running on ${host}:${port}`);
     console.log(`Set http://${host}:${port}/note in your app`);
